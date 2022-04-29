@@ -1387,7 +1387,7 @@ function ENT:Think()
     self:ShowHide("FuseboxCoverO", not self:GetPackedBool("FuseboxCover"))
 	for i=1,12 do 
 		self:ShowHide("PR"..i.."Toggle", self:GetPackedBool("PR"..i.."Cover"))
-		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,1,5,false) >= 0.01) then
+		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,0.8,5,false) >= 0.01) then
 			self:ShowHideSmooth("PR"..i.."Fuse", ((self:GetPackedBool("PR"..i.."FState") and 1 or 0) - (self:Animate("PR"..i.."Fuse",self:GetPackedBool("PR"..i.."FState") and 0 or 1,0,1,5,false))))
 		else
 			self:ShowHide("PR"..i.."Fuse",1)
@@ -1397,7 +1397,7 @@ function ENT:Think()
 	for i=1,36 do 
         self:ShowHide("PRL"..i.."Toggle", self:GetPackedBool("FuseboxCover")) 
         self:ShowHide("PRL"..i.."AToggle", self:GetPackedBool("FuseboxCover")) 
-		if (self:Animate("fusebox_cover", self:GetPackedBool("FuseboxCover") and 0.99 or 0,0,1,0.1,false) >= 0.01) then
+		if (self:Animate("fusebox_cover", self:GetPackedBool("FuseboxCover") and 0.99 or 0,0,1,0.08,false) >= 0.01) then
 			self:ShowHideSmooth("PRL"..i.."_fuse", ((self:GetPackedBool("PRL"..i.."State") and 1 or 0) - (self:Animate("PRL"..i.."_fuse",self:GetPackedBool("PRL"..i.."State") and 0 or 1,0,1,5,false))))
 			self:ShowHideSmooth("PRL"..i.."A_fuse", ((self:GetPackedBool("PRL"..i.."AState") and 1 or 0) - (self:Animate("PRL"..i.."A_fuse",self:GetPackedBool("PRL"..i.."AState") and 0 or 1,0,1,5,false))))
 		else
@@ -1405,7 +1405,7 @@ function ENT:Think()
 			self:ShowHide("PRL"..i.."A_fuse",1)
 		end
     end
-
+    ---
     local HL1 = self:Animate("whitelights",self:GetPackedBool("HeadLights1") and 1 or 0,0,1,5,false)
     local HL2 = self:Animate("distantlights",self:GetPackedBool("HeadLights2") and 1 or 0,0,1,5,false)
     local RL1 = self:Animate("redlight1",self:GetPackedBool("RedLights1") and 1 or 0,0,1,5,false)
