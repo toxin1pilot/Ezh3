@@ -2055,22 +2055,28 @@ function ENT:Think()
     end
 	
     --Fuses animate
-    local fboxcover = self:Animate("fusebox_cover", self:GetPackedBool("FuseboxCover") and 0.99 or 0,0,1, 8, 1)
     self:ShowHide("FuseboxCoverC", self:GetPackedBool("FuseboxCover")) 
     self:ShowHide("FuseboxCoverO", not self:GetPackedBool("FuseboxCover"))
-    for i=1,12 do 
-	    local hid = self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,1,5,false)
-        self:ShowHide("PR"..i.."Toggle", self:GetPackedBool("PR"..i.."Cover")) 
-		local hid2 = self:Animate("PR"..i.."Fuse",self:GetPackedBool("PR"..i.."FState") and 0 or 1,0,1,5,false)
-		self:ShowHideSmooth("PR"..i.."Fuse", ((self:GetPackedBool("PR"..i.."FState") and 1 or 0) - hid2) * (hid > 0 and 1 or 0))
-    end
-    for i=1,36 do 
+	
+	for i=1,12 do 
+		self:ShowHide("PR"..i.."Toggle", self:GetPackedBool("PR"..i.."Cover"))
+		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,1,5,false) >= 0.01) then
+			self:ShowHideSmooth("PR"..i.."Fuse", ((self:GetPackedBool("PR"..i.."FState") and 1 or 0) - (self:Animate("PR"..i.."Fuse",self:GetPackedBool("PR"..i.."FState") and 0 or 1,0,1,5,false))))
+		else
+			self:ShowHide("PR"..i.."Fuse",1)
+		end
+	end
+	
+	for i=1,36 do 
         self:ShowHide("PRL"..i.."Toggle", self:GetPackedBool("FuseboxCover")) 
         self:ShowHide("PRL"..i.."AToggle", self:GetPackedBool("FuseboxCover")) 
-		local hid = self:Animate("PRL"..i.."_fuse",self:GetPackedBool("PRL"..i.."State") and 0 or 1,0,1,5,false)
-		self:ShowHideSmooth("PRL"..i.."_fuse",((self:GetPackedBool("PRL"..i.."State") and 1 or 0) - hid) * (fboxcover > 0 and 1 or 0))
-		local hida = self:Animate("PRL"..i.."A_fuse",self:GetPackedBool("PRL"..i.."AState") and 0 or 1,0,1,5,false)
-		self:ShowHideSmooth("PRL"..i.."A_fuse",((self:GetPackedBool("PRL"..i.."AState") and 1 or 0) - hida) * (fboxcover > 0 and 1 or 0))
+		if (self:Animate("fusebox_cover", self:GetPackedBool("FuseboxCover") and 0.99 or 0,0,1,0.1,false) >= 0.01) then
+			self:ShowHideSmooth("PRL"..i.."_fuse", ((self:GetPackedBool("PRL"..i.."State") and 1 or 0) - (self:Animate("PRL"..i.."_fuse",self:GetPackedBool("PRL"..i.."State") and 0 or 1,0,1,5,false))))
+			self:ShowHideSmooth("PRL"..i.."A_fuse", ((self:GetPackedBool("PRL"..i.."AState") and 1 or 0) - (self:Animate("PRL"..i.."A_fuse",self:GetPackedBool("PRL"..i.."AState") and 0 or 1,0,1,5,false))))
+		else
+			self:ShowHide("PRL"..i.."_fuse",1)
+			self:ShowHide("PRL"..i.."A_fuse",1)
+		end
     end
 	
     local Lamps = self:GetPackedRatio("LampsStrength")
