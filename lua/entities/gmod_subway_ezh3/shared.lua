@@ -684,6 +684,8 @@ ENT.Spawner = {
             ent.UAVA:TriggerInput("Set",1)
             ent.Plombs.VU = true
             ent.Plombs.UAVA = nil
+			ent.PRL26:TriggerInput("Set",0)
+			ent.PRL12:TriggerInput("Set",0)
         end
     end,
     Metrostroi.Skins.GetTable("Texture","Texture",false,"train"),
