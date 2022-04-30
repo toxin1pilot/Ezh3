@@ -1387,7 +1387,7 @@ function ENT:Think()
     self:ShowHide("FuseboxCoverO", not self:GetPackedBool("FuseboxCover"))
 	for i=1,12 do 
 		self:ShowHide("PR"..i.."Toggle", self:GetPackedBool("PR"..i.."Cover"))
-		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,0.8,5,false) >= 0.01) then
+		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,1,4,false) >= 0.01) then
 			self:ShowHideSmooth("PR"..i.."Fuse", ((self:GetPackedBool("PR"..i.."FState") and 1 or 0) - (self:Animate("PR"..i.."Fuse",self:GetPackedBool("PR"..i.."FState") and 0 or 1,0,1,5,false))))
 		else
 			self:ShowHide("PR"..i.."Fuse",1)

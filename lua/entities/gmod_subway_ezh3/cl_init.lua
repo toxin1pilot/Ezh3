@@ -1171,7 +1171,7 @@ for i,button in pairs(ENT.ButtonMap.HighVoltFuse.buttons) do
         var=button.ID:Replace("Toggle",""), 
 		speed=3,
         sndid=button.ID:Replace("Toggle","Fuse"),
-        sndvol = 0.3, snd = function(val) return val and "fuseh_in" or "fuseh_out" end,
+        sndvol = 0.2, snd = function(val) return val and "fuseh_in" or "fuseh_out" end,
         sndmin = 90, sndmax = 1e3, sndang = Angle(-90,0,0),
 		noTooltip = true
     }
@@ -1471,7 +1471,7 @@ ENT.ButtonMap["Fusebox"] = {
 for i,button in pairs(ENT.ButtonMap.Fusebox.buttons) do
     button.model = {
         var=button.ID:Replace("Toggle",""), speed=3, sndid=button.ID:Replace("Toggle","_fuse"), 
-        sndvol = 0.3, snd = function(val) return val and "fuseh_in" or "fuseh_out" end,
+        sndvol = 0.1, snd = function(val) return val and "fuseh_in" or "fuseh_out" end,
 	    sndmin = 90, sndmax = 1e3, sndang = Angle(-90,0,0),
 		noTooltip = true
     }
@@ -2059,7 +2059,7 @@ function ENT:Think()
     self:ShowHide("FuseboxCoverO", not self:GetPackedBool("FuseboxCover"))
 	for i=1,12 do 
 		self:ShowHide("PR"..i.."Toggle", self:GetPackedBool("PR"..i.."Cover"))
-		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,0.8,5,false) >= 0.01) then
+		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,1,4,false) >= 0.01) then
 			self:ShowHideSmooth("PR"..i.."Fuse", ((self:GetPackedBool("PR"..i.."FState") and 1 or 0) - (self:Animate("PR"..i.."Fuse",self:GetPackedBool("PR"..i.."FState") and 0 or 1,0,1,5,false))))
 		else
 			self:ShowHide("PR"..i.."Fuse",1)
