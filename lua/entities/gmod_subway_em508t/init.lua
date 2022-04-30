@@ -19,6 +19,7 @@ ENT.SyncTable = {
     "PR1","PR2","PR5","PR11","PR4","PR9","PR6","PR8","PR12",--9
     "PRL13","PRL31","PRL17","PRL25","PRL18","PRL24","PRL19","PRL6A","PRL4A","PRL16","PRL28","PRL2A","PRL34",--13+13==26 --PRL2 ?
     "PRL23","PRL15","PRL22","PRL20","PRL21","PRL32","PRL30","PRL1A","PRL14","PRL26","PRL12","PRL29","PRL33",
+	"FBoxCover"
 }
 
 function ENT:Initialize()
@@ -338,7 +339,7 @@ function ENT:Think()
     self:SetPackedBool("PR6Cover", self.PR6Cap.Value)
     self:SetPackedBool("PR8Cover", self.PR8Cap.Value)
     self:SetPackedBool("PR12Cover", self.PR12Cap.Value)
-    self:SetPackedBool("FuseboxCover", self.FuseboxCover)
+    self:SetPackedBool("FuseboxCover", self.FBoxCover.Value)
     
     self:SetPackedBool("PRL13State",self.PRL13.Value)
     self:SetPackedBool("PRL31State",self.PRL31.Value)
@@ -388,18 +389,6 @@ function ENT:OnButtonPress(button,ply)
     if button == "RearDoor" then self.RearDoor = not self.RearDoor end
     if button == "PassengerDoor" then self.PassengerDoor = not self.PassengerDoor end
     if button == "CabinDoor" then self.CabinDoor = not self.CabinDoor end
-    if button == "PR1Holder" then self.PR1Cover = not self.PR1Cover end
-    if button == "PR2Holder" then self.PR2Cover = not self.PR2Cover end
-    if button == "PR5Holder" then self.PR5Cover = not self.PR5Cover end
-    if button == "PR11Holder" then self.PR11Cover = not self.PR11Cover end
-    if button == "PR4Holder" then self.PR4Cover = not self.PR4Cover end
-    if button == "PR9Holder" then self.PR9Cover = not self.PR9Cover end
-    if button == "PR6Holder" then self.PR6Cover = not self.PR6Cover end
-    if button == "PR8Holder" then self.PR8Cover = not self.PR8Cover end
-    if button == "PR12Holder" then self.PR12Cover = not self.PR12Cover end
-    if button == "FuseboxCoverC" then self.FuseboxCover = not self.FuseboxCover end
-    if button == "FuseboxCoverO" then self.FuseboxCover = not self.FuseboxCover end
-
 
     -- Parking brake
     if button == "ManualBrakeLeft" then

@@ -440,6 +440,18 @@ function ENT:InitializeSounds()
 		"subway_trains/710/fusecap_close_2.mp3",
     }
     self.SoundPositions["fusecap_close"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
+	
+	self.SoundNames["fusebox_open"] = {
+        "subway_trains/710/fusebox_open_1.mp3",
+		"subway_trains/710/fusebox_open_2.mp3",
+    }
+    self.SoundPositions["fusebox_open"] = {80,1e2,Vector(449+7,56.0,-10.24349),0.6}
+    
+	self.SoundNames["fusebox_close"] = {
+        "subway_trains/710/fusebox_close_1.mp3",
+		"subway_trains/710/fusebox_close_2.mp3",
+    }
+    self.SoundPositions["fusebox_close"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
 
     self.SoundNames["parking_brake_rolling"] = {"subway_trains/ezh3/parking_brake_rolling1.mp3","subway_trains/ezh3/parking_brake_rolling2.mp3","subway_trains/ezh3/parking_brake_rolling3.mp3","subway_trains/ezh3/parking_brake_rolling4.mp3"}
     self.SoundPositions["parking_brake_rolling"] = {65,1e9,Vector(449.118378+7.6,33.493385,-14.713276),0.1}

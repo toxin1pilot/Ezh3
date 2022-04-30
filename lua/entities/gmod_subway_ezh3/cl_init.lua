@@ -1169,7 +1169,6 @@ ENT.ButtonMap["HighVoltFuse"] = {
 for i,button in pairs(ENT.ButtonMap.HighVoltFuse.buttons) do
     button.model = {
         var=button.ID:Replace("Toggle",""), 
-		speed=3,
         sndid=button.ID:Replace("Toggle","Fuse"),
         sndvol = 0.2, snd = function(val) return val and "fuseh_in" or "fuseh_out" end,
         sndmin = 90, sndmax = 1e3, sndang = Angle(-90,0,0),
@@ -1428,6 +1427,36 @@ ENT.ClientProps["PRL33_fuse"] = {
     hideseat = 0.2,
     scale = 1.0,
 }
+
+ENT.ButtonMap["FuseboxCoverC"] = {
+    pos = Vector(405,-45.55,-4),
+    ang = Angle(-90,180,0),
+    width = 150,
+    height = 380, 
+    scale = 0.0625,
+    hide=0.8,
+    buttons = {
+        {ID = "FBoxCoverToggle",x=0,y=0,w=150,h=380, tooltip ="", model = {
+		var="FBoxCover", sndid="fusebox_cover", 
+        sndvol = 1.4, snd = function(val) return val and "fusebox_open" or "fusebox_close"  end,
+	    sndmin = 90, sndmax = 1e3, sndang = Angle(-90,0,0),
+		 noTooltip = true,
+		}},
+    }
+}
+ENT.ButtonMap["FuseboxCoverO"] = {
+    pos = Vector(405,-45.55,6),
+    ang = Angle(-90,180,0),
+    width = 150,
+    height = 380, 
+    scale = 0.0625,
+    hide=0.8,
+    buttons = {
+        {ID = "FBoxCoverToggle",x=0,y=0,w=150,h=380, tooltip ="", model = {
+		noTooltip = true,
+		}},
+    }
+}
 ENT.ButtonMap["Fusebox"] = {
     pos = Vector(404,-45.55,-3),
     ang = Angle(-90,180,0),
@@ -1436,8 +1465,6 @@ ENT.ButtonMap["Fusebox"] = {
     scale = 0.0625,
     hide=0.8,
     buttons = {
-        {ID = "FuseboxCoverC",x=0,y=0,w=150,h=380, tooltip ="", noTooltip = true,},
-        {ID = "FuseboxCoverO",x=150,y=0,w=150,h=380, tooltip="",noTooltip = true},
         --Верхний ряд
         {ID = "PRL13Toggle", x=128+56*2,y=21+27*0,w=40,h=15,tooltip=""},
         {ID = "PRL31Toggle", x=128+56*2,y=21+27*1,w=40,h=15,tooltip=""},
@@ -2055,8 +2082,8 @@ function ENT:Think()
     end
 	
     --Fuses animate
-    self:ShowHide("FuseboxCoverC", self:GetPackedBool("FuseboxCover")) 
-    self:ShowHide("FuseboxCoverO", not self:GetPackedBool("FuseboxCover"))
+    self:HidePanel("FuseboxCoverC", not self:GetPackedBool("FuseboxCover")) 
+    self:HidePanel("FuseboxCoverO", self:GetPackedBool("FuseboxCover"))
 	for i=1,12 do 
 		self:ShowHide("PR"..i.."Toggle", self:GetPackedBool("PR"..i.."Cover"))
 		if (self:Animate("PR"..i.."Cap", self:GetPackedBool("PR"..i.."Cover") and 0.99 or 0,0,1,4,false) >= 0.01) then
@@ -2065,11 +2092,10 @@ function ENT:Think()
 			self:ShowHide("PR"..i.."Fuse",1)
 		end
 	end
-	
 	for i=1,36 do 
         self:ShowHide("PRL"..i.."Toggle", self:GetPackedBool("FuseboxCover")) 
         self:ShowHide("PRL"..i.."AToggle", self:GetPackedBool("FuseboxCover")) 
-		if (self:Animate("fusebox_cover", self:GetPackedBool("FuseboxCover") and 0.99 or 0,0,1,0.08,false) >= 0.01) then
+		if (self:Animate("fusebox_cover", self:GetPackedBool("FuseboxCover") and 1 or 0,0,1,0.05,false) >= 0.01) then
 			self:ShowHideSmooth("PRL"..i.."_fuse", ((self:GetPackedBool("PRL"..i.."State") and 1 or 0) - (self:Animate("PRL"..i.."_fuse",self:GetPackedBool("PRL"..i.."State") and 0 or 1,0,1,5,false))))
 			self:ShowHideSmooth("PRL"..i.."A_fuse", ((self:GetPackedBool("PRL"..i.."AState") and 1 or 0) - (self:Animate("PRL"..i.."A_fuse",self:GetPackedBool("PRL"..i.."AState") and 0 or 1,0,1,5,false))))
 		else

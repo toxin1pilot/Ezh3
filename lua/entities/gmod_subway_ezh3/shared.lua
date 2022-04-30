@@ -350,6 +350,18 @@ function ENT:InitializeSounds()
 		"subway_trains/710/fusecap_close_2.mp3",
     }
     self.SoundPositions["fusecap_close"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
+    
+	self.SoundNames["fusebox_open"] = {
+        "subway_trains/710/fusebox_open_1.mp3",
+		"subway_trains/710/fusebox_open_2.mp3",
+    }
+    self.SoundPositions["fusebox_open"] = {80,1e2,Vector(449+7,56.0,-10.24349),0.6}
+    
+	self.SoundNames["fusebox_close"] = {
+        "subway_trains/710/fusebox_close_1.mp3",
+		"subway_trains/710/fusebox_close_2.mp3",
+    }
+    self.SoundPositions["fusebox_close"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
 
 
     --Краны

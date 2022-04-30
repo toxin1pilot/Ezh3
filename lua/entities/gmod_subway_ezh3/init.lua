@@ -17,6 +17,7 @@ ENT.SyncTable = {
 	"PR1Cap","PR2Cap","PR5Cap","PR11Cap","PR4Cap","PR9Cap","PR6Cap","PR8Cap","PR12Cap",
     "PRL13","PRL31","PRL17","PRL25","PRL18","PRL24","PRL19","PRL6A","PRL4A","PRL16","PRL28","PRL2A","PRL34",
     "PRL23","PRL15","PRL22","PRL20","PRL21","PRL32","PRL30","PRL1A","PRL14","PRL26","PRL12","PRL29","PRL33",
+	"FBoxCover"
 }
 
 function ENT:Initialize()
@@ -217,8 +218,6 @@ function ENT:Initialize()
     self.FrontDoor = false
     self.CabinDoor = false
     self.PassengerDoor = false
-    
-    self.FuseboxCover = false
 
 --  self.A5:TriggerInput("Set",0)
     self:TrainSpawnerUpdate()
@@ -391,6 +390,7 @@ function ENT:Think()
 
     self:GenerateJerks()
     --Fuses
+	
     self:SetPackedBool("PR1FState",self.PR1.Value)
     self:SetPackedBool("PR2FState",self.PR2.Value)
     self:SetPackedBool("PR5FState",self.PR5.Value)
@@ -410,7 +410,7 @@ function ENT:Think()
     self:SetPackedBool("PR6Cover", self.PR6Cap.Value)
     self:SetPackedBool("PR8Cover", self.PR8Cap.Value)
     self:SetPackedBool("PR12Cover", self.PR12Cap.Value)
-    self:SetPackedBool("FuseboxCover", self.FuseboxCover)
+    self:SetPackedBool("FuseboxCover", self.FBoxCover.Value)
     
     self:SetPackedBool("PRL13State",self.PRL13.Value)
     self:SetPackedBool("PRL31State",self.PRL31.Value)
@@ -460,8 +460,6 @@ function ENT:OnButtonPress(button,ply)
     if button == "RearDoor" then self.RearDoor = not self.RearDoor end
     if button == "PassengerDoor" then self.PassengerDoor = not self.PassengerDoor end
     if button == "CabinDoor" then self.CabinDoor = not self.CabinDoor end
-    if button == "FuseboxCoverC" then self.FuseboxCover = not self.FuseboxCover end
-    if button == "FuseboxCoverO" then self.FuseboxCover = not self.FuseboxCover end
     if button == "KVUp" then
         if self.KV.ControllerPosition ~= -1 then
             self.KV:TriggerInput("ControllerUp",1.0)
