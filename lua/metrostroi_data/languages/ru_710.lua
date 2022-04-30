@@ -58,8 +58,9 @@ Common.710.PRL33                = П-33: Предохранитель цепи �
 
 
 
-Entities.gmod_subway_ezh3.Buttons.Fusebox.FuseboxCoverO                                   = @[Common.710.FuseboxO]
-Entities.gmod_subway_ezh3.Buttons.Fusebox.FuseboxCoverC                                   = @[Common.710.FuseboxC]
+
+Entities.gmod_subway_ezh3.Buttons.FuseboxCoverO.FBoxCoverToggle                              = @[Common.710.FuseboxO]
+Entities.gmod_subway_ezh3.Buttons.FuseboxCoverC.FBoxCoverToggle                              = @[Common.710.FuseboxC]
 
 
 Entities.gmod_subway_ezh3.Buttons.HighVoltFuse.PR1Toggle                                   = @[Common.710.PR1]
@@ -111,8 +112,8 @@ Entities.gmod_subway_ezh3.Buttons.Fusebox.PRL29Toggle                           
 Entities.gmod_subway_ezh3.Buttons.Fusebox.PRL33Toggle                                 = @[Common.710.PRL33]
 
 #gmod_subway_em508t
-Entities.gmod_subway_em508t.Buttons.Fusebox.FuseboxCoverO                                   = @[Common.710.FuseboxO]
-Entities.gmod_subway_em508t.Buttons.Fusebox.FuseboxCoverC                                   = @[Common.710.FuseboxC]
+Entities.gmod_subway_em508t.Buttons.FuseboxCoverO.FBoxCoverToggle                                   = @[Common.710.FuseboxO]
+Entities.gmod_subway_em508t.Buttons.FuseboxCoverC.FBoxCoverToggle                                   = @[Common.710.FuseboxC]
 
 Entities.gmod_subway_em508t.Buttons.HighVoltFuse.PR1Toggle                                   = @[Common.710.PR1]
 Entities.gmod_subway_em508t.Buttons.HighVoltFuse.PR2Toggle                                   = @[Common.710.PR2]
