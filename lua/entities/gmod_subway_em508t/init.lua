@@ -19,7 +19,7 @@ ENT.SyncTable = {
     "PR1","PR2","PR5","PR11","PR4","PR9","PR6","PR8","PR12",--9
     "PRL13","PRL31","PRL17","PRL25","PRL18","PRL24","PRL19","PRL6A","PRL4A","PRL16","PRL28","PRL2A","PRL34",--13+13==26 --PRL2 ?
     "PRL23","PRL15","PRL22","PRL20","PRL21","PRL32","PRL30","PRL1A","PRL14","PRL26","PRL12","PRL29","PRL33",
-	"FBoxCover"
+     "FBoxCover"
 }
 
 function ENT:Initialize()
@@ -329,8 +329,8 @@ function ENT:Think()
     self:SetPackedBool("PR6FState",self.PR6.Value)
     self:SetPackedBool("PR8FState",self.PR8.Value)
     self:SetPackedBool("PR12FState",self.PR12.Value)
-	
-	self:SetPackedBool("PR1Cover", self.PR1Cap.Value)
+     
+     self:SetPackedBool("PR1Cover", self.PR1Cap.Value)
     self:SetPackedBool("PR2Cover", self.PR2Cap.Value)
     self:SetPackedBool("PR5Cover", self.PR5Cap.Value)
     self:SetPackedBool("PR11Cover", self.PR11Cap.Value)
@@ -377,7 +377,7 @@ function ENT:OnButtonPress(button,ply)
     if string.find(button,"PneumaticBrakeSet") then
         self.Pneumatic:TriggerInput("BrakeSet",tonumber(button:sub(-1,-1)))
         return
-    end
+     end
     -- Parking brake
     if button == "ParkingBrakeLeft" then self.ManualBrake = math.max(0.0,(self.ManualBrake or 0) - 0.05) end
     if button == "ParkingBrakeRight" then self.ManualBrake = math.min(1.0,(self.ManualBrake or 0) + 0.05) end

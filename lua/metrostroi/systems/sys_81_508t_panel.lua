@@ -45,7 +45,7 @@ function TRAIN_SYSTEM:Initialize()
     self.Train:LoadSystem("PR6","Relay","Switch", {normally_closed = true,bass = true})
     self.Train:LoadSystem("PR8","Relay","Switch", {normally_closed = true,bass = true})
     self.Train:LoadSystem("PR12","Relay","Switch", {normally_closed = true,bass = true})
-	
+     
     self.Train:LoadSystem("PR1Cap","Relay","Switch", {normally_closed = false,bass = true})
     self.Train:LoadSystem("PR2Cap","Relay","Switch", {normally_closed = false,bass = true})
     self.Train:LoadSystem("PR5Cap","Relay","Switch", {normally_closed = false,bass = true})
@@ -56,7 +56,7 @@ function TRAIN_SYSTEM:Initialize()
     self.Train:LoadSystem("PR8Cap","Relay","Switch", {normally_closed = false,bass = true})
     self.Train:LoadSystem("PR12Cap","Relay","Switch", {normally_closed = false,bass = true})
     --Предохранители низковольтные
-	self.Train:LoadSystem("FBoxCover","Relay","Switch", {normally_closed = false,bass = true}) 
+    self.Train:LoadSystem("FBoxCover","Relay","Switch", {normally_closed = false,bass = true}) 
     self.Train:LoadSystem("PRL13","Relay","Switch", {normally_closed = true,bass = true})
     self.Train:LoadSystem("PRL31","Relay","Switch", {normally_closed = true,bass = true})
     self.Train:LoadSystem("PRL17","Relay","Switch", {normally_closed = true,bass = true})

@@ -235,7 +235,7 @@ function TRAIN_SYSTEM:SolveAllInternalCircuits(Train,dT,firstIter)
     Train:WriteTrainWire(32,S["D1"]*Train.KU7.Value)
     Train:WriteTrainWire(12,S["D1"]*Train.V10.Value)
     Train:WriteTrainWire(16,S["D1"]*Train.V2.Value*Train.V3.Value)
-	Train.RPU:TriggerInput("Set",T[27])
+    Train.RPU:TriggerInput("Set",T[27])
 
     Panel.PanelLights = BO*Train.PLights.Value
     Panel.GaugeLights = BO*Train.GLights.Value

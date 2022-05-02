@@ -59,8 +59,8 @@ Common.710.PRL33                = П-33: Предохранитель цепи �
 
 
 
-Entities.gmod_subway_ezh3.Buttons.FuseboxCoverO.FBoxCoverToggle                              = @[Common.710.FuseboxO]
-Entities.gmod_subway_ezh3.Buttons.FuseboxCoverC.FBoxCoverToggle                              = @[Common.710.FuseboxC]
+Entities.gmod_subway_ezh3.Buttons.FuseboxCoverO.FBoxCoverToggle                        = @[Common.710.FuseboxO]
+Entities.gmod_subway_ezh3.Buttons.FuseboxCoverC.FBoxCoverToggle                        = @[Common.710.FuseboxC]
 
 
 Entities.gmod_subway_ezh3.Buttons.HighVoltFuse.PR1Toggle                                   = @[Common.710.PR1]

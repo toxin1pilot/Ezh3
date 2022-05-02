@@ -417,39 +417,39 @@ function ENT:InitializeSounds()
 
     self.SoundNames["fuseh_in"] = {
         "subway_trains/710/fuseh_in_1.mp3",
-		"subway_trains/710/fuseh_in_2.mp3",
-		"subway_trains/710/fuseh_in_3.mp3",
+        "subway_trains/710/fuseh_in_2.mp3",
+        "subway_trains/710/fuseh_in_3.mp3",
     }
     self.SoundPositions["fuseh_in"] = {80,1e2,Vector(449+7,56.0,-10.24349),0.6}
     
-	self.SoundNames["fuseh_out"] = {
+     self.SoundNames["fuseh_out"] = {
         "subway_trains/710/fuseh_out_1.mp3",
-		"subway_trains/710/fuseh_out_2.mp3",
-		"subway_trains/710/fuseh_out_3.mp3",
+        "subway_trains/710/fuseh_out_2.mp3",
+        "subway_trains/710/fuseh_out_3.mp3",
     }
     self.SoundPositions["fuseh_in"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
 
     self.SoundNames["fusecap_open"] = {
         "subway_trains/710/fusecap_open_1.mp3",
-		"subway_trains/710/fusecap_open_2.mp3",
+        "subway_trains/710/fusecap_open_2.mp3",
     }
     self.SoundPositions["fusecap_open"] = {80,1e2,Vector(449+7,56.0,-10.24349),0.6}
     
-	self.SoundNames["fusecap_close"] = {
+     self.SoundNames["fusecap_close"] = {
         "subway_trains/710/fusecap_close_1.mp3",
-		"subway_trains/710/fusecap_close_2.mp3",
+        "subway_trains/710/fusecap_close_2.mp3",
     }
     self.SoundPositions["fusecap_close"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
-	
-	self.SoundNames["fusebox_open"] = {
+     
+     self.SoundNames["fusebox_open"] = {
         "subway_trains/710/fusebox_open_1.mp3",
-		"subway_trains/710/fusebox_open_2.mp3",
+        "subway_trains/710/fusebox_open_2.mp3",
     }
     self.SoundPositions["fusebox_open"] = {80,1e2,Vector(449+7,56.0,-10.24349),0.6}
     
-	self.SoundNames["fusebox_close"] = {
+     self.SoundNames["fusebox_close"] = {
         "subway_trains/710/fusebox_close_1.mp3",
-		"subway_trains/710/fusebox_close_2.mp3",
+        "subway_trains/710/fusebox_close_2.mp3",
     }
     self.SoundPositions["fusebox_close"] = {80,1e2,Vector(449+7.7,56.0,-10.24349),0.6}
 
