@@ -198,12 +198,10 @@ function ENT:Initialize()
 
     -- Cross connections in train wires
     self.TrainWireInverts = {
-        --[18] = true,
         [21] = true,
-        [34] = true,
     }
     self.TrainWireCrossConnections = {
-        [5] = 4, -- Reverser F<->B
+        [5] = 4, --Reverser F<->B
         [31] = 32, -- Doors L<->R
     }
 

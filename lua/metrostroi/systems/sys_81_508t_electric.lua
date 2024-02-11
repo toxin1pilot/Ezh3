@@ -70,9 +70,9 @@ function TRAIN_SYSTEM:SolveAllInternalCircuits(Train,dT,firstIter)
     Train:WriteTrainWire(4,S["10AK"]*KV["U2-4"])
     Train:WriteTrainWire(5,S["10AK"]*KV["U2-5"])
     Train:WriteTrainWire(6,S["10AK"]*Train.RVT.Value)
-     Train:WriteTrainWire(7,BO*Train.Ring.Value)
+    Train:WriteTrainWire(7,BO*Train.Ring.Value)
     Train:WriteTrainWire(8,BO*KV["10-8"])
-    Train:WriteTrainWire(14,BO*KV["10-14A"]*KV["14A-14B"])
+    --Train:WriteTrainWire(14,BO*KV["10-14A"]*KV["14A-14B"])
     Train:WriteTrainWire(17,S["10AK"]*KV["10AK-17"]*Train.KU9.Value)
     Train:WriteTrainWire(20,S["U2"]*KV["U2-20"])
     Train:WriteTrainWire(24,S["U2"]*Train.KU8.Value)
@@ -84,7 +84,7 @@ function TRAIN_SYSTEM:SolveAllInternalCircuits(Train,dT,firstIter)
     Train.R1_5:TriggerInput("Set",S["10AK"]*Train.RV2.Value)
     Panel.AnnouncerPlaying = T[13]
 
-    Train:WriteTrainWire(34,Train.RKTT.Value+Train.DKPT.Value)
+    Train:WriteTrainWire(21,Train.RKTT.Value+Train.DKPT.Value)
     Panel.RRP = S["U2"]*T[18]
 
     local RCU = KV.RCU
@@ -101,9 +101,8 @@ function TRAIN_SYSTEM:SolveAllInternalCircuits(Train,dT,firstIter)
     Reverser:TriggerInput("VP",S["5A"]*Reverser.NZ)
     Train.LK4:TriggerInput("Set",(S["4A"]*Reverser.NZ+S["5A"]*Reverser.VP)*(1-Train.RPvozvrat.Value)*Train.LK3.Value*S["ZR"])
 
-    Train.PneumaticNo1:TriggerInput("Set",T[8]*Train.PRL23.Value*C(17 <= RK and RK <= 18)+T[9])
+    Train.PneumaticNo1:TriggerInput("Set",T[8]*Train.PRL23.Value*C(17 <= RK and RK <= 18)+T[29])
     Train.PneumaticNo2:TriggerInput("Set",T[8]*Train.PRL23.Value*(1-Train.RT2.Value)*((1-Train.LK4.Value)+C(RK==1)))
-    Train.RV3:TriggerInput("Set",T[14])
 
     S["10A"] = BO*RCU
     self.ThyristorControllerPower = S["10A"]
@@ -152,13 +151,14 @@ function TRAIN_SYSTEM:SolveAllInternalCircuits(Train,dT,firstIter)
     Train.Rper:TriggerInput("Set",T[3]*RCU*C(17<=RK and RK<=18)*S["ZR"])
     Train.RU:TriggerInput("Set",S["2A"])
 
-    Train.RRU:TriggerInput("Set",T[29])
+    Train.RRU:TriggerInput("Set",T[14])
 
     S["6A"] = T[6]*RCU
     Train.TR1:TriggerInput("Set",S["6A"])
     Train.RPP:TriggerInput("Set",S["6A"])
     S["6G"] = S["6A"]*C(P==3 or P==4)
     S["6Yu"] = S["6G"]*C(1<=RK and RK<=2)
+    --print(S["6Yu"])
     Train.KSB1:TriggerInput("Set",S["6Yu"])
     Train.KSB2:TriggerInput("Set",S["6Yu"])
     Train.RUP:TriggerInput("Set",S["6Yu"])
@@ -193,8 +193,8 @@ function TRAIN_SYSTEM:SolveAllInternalCircuits(Train,dT,firstIter)
     S["F7"] = BO*Train.PRL15.Value*KV["F-F7"]
     Panel.Headlights1 = S["F7"]
     Panel.Headlights2 = S["F7"]*Train.VU14.Value
-     Panel.RedLight1 = BO*Train.PRL26.Value*KV["B2-F1"]
-     Panel.RedLight2 = BO*Train.PRL12.Value*KV["B2-F1"]
+    Panel.RedLight1 = BO*Train.PRL26.Value*KV["B2-F1"]
+    Panel.RedLight2 = BO*Train.PRL12.Value*KV["B2-F1"]
     S["D1"] = BO*Train.PRL22.Value*KV["D-D1"]
     Train:WriteTrainWire(31,S["D1"]*(Train.V6.Value+Train.KU12.Value))
     Train:WriteTrainWire(32,S["D1"]*Train.KU7.Value)
@@ -281,7 +281,7 @@ function TRAIN_SYSTEM:SolveRKInternalCircuits(Train,dT,firstIter)
     return S
 end
 
-local wires = {1,2,3,4,5,6,7,8,10,9,13,14,17,18,20,25,11,12,15,16,22,23,24,27,28,29,30,31,32}
+local wires = {1,2,3,4,5,6,7,8,10,9,13,14,17,18,20,25,11,12,15,16,21,-21,22,23,24,27,28,29,30,31,32}
 function TRAIN_SYSTEM:SolveInternalCircuits(Train,dT,firstIter)
     local T     = Train.SolverTemporaryVariables
     if not T then
