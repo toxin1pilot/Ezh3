@@ -760,5 +760,6 @@ ENT.Spawner = {
         if val==1 then ent.KO:TriggerInput("Close",1) else ent.KO:TriggerInput("Open",1) end
         ent.Pneumatic.TrainLinePressure = val==3 and math.random()*4 or val==2 and 4.5+math.random()*3 or 7.6+math.random()*0.6
         ent.Pneumatic.BrakeLinePressure = val == 4 and 5.2 or val == 1 and 2.3 or math.min(ent.Pneumatic.TrainLinePressure+0.25,math.random()*4)
+        ent.Pneumatic.ReservoirPressure = val == 4 and 5.2 or val == 1 and 2.3 or math.min(ent.Pneumatic.TrainLinePressure+0.25,math.random()*4)
     end},
 }
